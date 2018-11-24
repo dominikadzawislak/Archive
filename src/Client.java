@@ -321,7 +321,6 @@ public class Client {
 	public static void receiveReturnedFile(String fileLocation, int sizeR) throws IOException {
 		window.textArea.append("Saving file...\n");
 		fileLocation = ("C:\\Users\\Dominika\\Desktop\\JAVAR\\" + fileName);
-	//	fileLocation = ("C:\\Users\\Pacia\\Desktop\\JAVA2\\" + fileName);
 		DataInputStream dis = new DataInputStream(socket.getInputStream());
 		FileOutputStream fos = new FileOutputStream(fileLocation);
 		byte[] buffer = new byte[sizeR];
