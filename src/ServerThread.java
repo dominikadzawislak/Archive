@@ -72,7 +72,6 @@ public class ServerThread extends Thread {
 		System.out.println("File" + fileName);
 
 		if (requestM.equals("savefile")) {
-			//File f = new File("C:\\Users\\Pacia\\Desktop\\JAVA\\" + fileName);
 			 File f = new File("C:\\Users\\Dominika\\Desktop\\JAVA2\\" + fileName);
 			long date1 = f.lastModified();
 			System.out.println("dateC:" + date);
@@ -91,7 +90,6 @@ public class ServerThread extends Thread {
 			}
 
 		} else if (requestM.equals("deletefile")) {
-	//		File f = new File("C:\\Users\\Pacia\\Desktop\\JAVA\\" + fileName);
 			File f = new File("C:\\Users\\Dominika\\Desktop\\JAVA2\\" + fileName);
 			if (f.exists()) {
 				deleteFiles(fileLocation);
@@ -104,7 +102,6 @@ public class ServerThread extends Thread {
 				pw.flush();
 			}
 		} else if (requestM.equals("zipfile")) {
-		//	File f = new File("C:\\Users\\Pacia\\Desktop\\JAVA\\" + fileName);
 			File f = new File("C:\\Users\\Dominika\\Desktop\\JAVA2\\" + fileName);
 			if (f.exists()) {
 				zipFile(fileLocation);
@@ -117,7 +114,6 @@ public class ServerThread extends Thread {
 				pw.flush();
 			}
 		} else if (requestM.equals("showarchive")) {
-		//	listOfArchive(new File("C:\\Users\\Pacia\\Desktop\\JAVA"));
 			listOfArchive(new File("C:\\Users\\Dominika\\Desktop\\JAVA2"));
 			System.out.println("List shown");
 			pw.println("" + list);
@@ -125,7 +121,6 @@ public class ServerThread extends Thread {
 			list.clear();
 			listOfFiles.clear();
 		} else if (requestM.equals("returnfile")) {
-		//	File f = new File("C:\\Users\\Pacia\\Desktop\\JAVA\\" + fileName);
 			File f = new File("C:\\Users\\Dominika\\Desktop\\JAVA2\\" + fileName);
 			if (f.exists()) {
 				pw.println("exists");
@@ -149,7 +144,6 @@ public class ServerThread extends Thread {
 	}
 
 	private void sendSaveRequest(String fileName) throws IOException {
-	//	fileLocation = ("C:\\Users\\Pacia\\Desktop\\JAVA\\" + fileName);
 		fileLocation = ("C:\\Users\\Dominika\\Desktop\\JAVA2\\" + fileName);
 		File file = new File(fileLocation);
 		sizeR = file.length();
@@ -166,7 +160,6 @@ public class ServerThread extends Thread {
 
 	public void receiveFile(String fileLocation, int size, long date ) throws IOException {
 		System.out.println("Saving file...");
-	//	fileLocation = ("C:\\Users\\Pacia\\Desktop\\JAVA\\" + fileName);
 		fileLocation = ("C:\\Users\\Dominika\\Desktop\\JAVA2\\" + fileName);
 		
 		DataInputStream dis = new DataInputStream(socket.getInputStream());
@@ -198,7 +191,6 @@ public class ServerThread extends Thread {
 
 	public static boolean deleteFiles(String fileLocation) {
 		System.out.println("Called deleteFiles");
-	//	fileLocation = ("C:\\Users\\Pacia\\Desktop\\JAVA\\" + fileName);
 		fileLocation = ("C:\\Users\\Dominika\\Desktop\\JAVA2\\" + fileName);
 		File file = new File(fileLocation);
 
@@ -241,7 +233,6 @@ public class ServerThread extends Thread {
 		int sizeOfFiles = 1024 * 1024;// 1MB
 		byte[] buffer = new byte[sizeOfFiles];
 		fileLocation = ("C:\\Users\\Dominika\\Desktop\\JAVA2\\" + fileName);
-	//	fileLocation = ("C:\\Users\\Pacia\\Desktop\\JAVA\\" + fileName);
 		File file = new File(fileLocation);
 
 		try (FileInputStream fis = new FileInputStream(file); BufferedInputStream bis = new BufferedInputStream(fis)) {
@@ -262,12 +253,10 @@ public class ServerThread extends Thread {
 	public boolean zipFile(String fileLocation) throws IOException {
 
 		fileLocation = ("C:\\Users\\Dominika\\Desktop\\JAVA2\\" + fileName);
-	//	fileLocation = ("C:\\Users\\Pacia\\Desktop\\JAVA\\" + fileName);
 		File file = new File(fileLocation);
 		FileInputStream in = new FileInputStream(file);
 
 		String fileNameZip = "C:\\Users\\Dominika\\Desktop\\JAVA2\\" + file.getName() + ".zip";
-    //    String fileNameZip = "C:\\Users\\Pacia\\Desktop\\JAVA\\" + file.getName() + ".zip";
 		System.out.println("Plik zip: " + fileNameZip);
 		ZipOutputStream out = new ZipOutputStream(new FileOutputStream(fileNameZip));
 
